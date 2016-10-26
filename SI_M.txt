@@ -102,8 +102,8 @@ MAIN	PROC
 	CALL	SET_DISPLAY_MODE ;INICIALIZA MODO GRAFICO
 	MOV 	AX,@DATA	;INICIALIZA DATA
 	MOV 	DS,AX
-
-INICIO1:	LEA 	DX,MSG		;Le mensagem de saudações
+;;;;;;;;;;;;;;;;;;INCIO MENU ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+INICIOMENU:LEA 	DX,MSG		;Le mensagem de saudações
 	MOV 	AH,9
 	INT 	21h
 
@@ -118,8 +118,8 @@ INICIO1:	LEA 	DX,MSG		;Le mensagem de saudações
 	INT 	21h
 	CMP 	AL, ' '
 	JE 	INICIO_GAME	;Se o usuario digitou espaço pulo para INICIO_GAME
-	JMP	INICIO1 		;Se o usurario digitar algo diferente volta para o inicio
-
+	JMP	INICIOMENU 		;Se o usurario digitar algo diferente volta para o inicio
+;;;;;;;;;;;;;;;;;;;FIM MENU;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 INICIO_GAME:
 
 	PRINTA_OBJETO	SCORE, 15, 0, 0, 26, 156
